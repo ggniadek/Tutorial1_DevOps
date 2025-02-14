@@ -1562,6 +1562,7 @@
 	"variable": [
 		{
 			"key": "baseUrl",
+			"value": "http://localhost:8080/tutorial/1.0.0",
 			"type": "string"
 		}
 	]
