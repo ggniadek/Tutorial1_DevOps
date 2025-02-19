@@ -86,7 +86,7 @@ paths:
             application/json:
               schema:
                 type: string
-                format: uuid
+                format: string
                 x-content-type: application/json
         "400":
           description: "invalid input, object invalid"
@@ -129,7 +129,7 @@ components:
         subject_name:
           type: string
         grade:
-          type: float
+          type: number
       example:
         grade: 6
         subject_name: subject_name
