@@ -1,6 +1,7 @@
 import os
 import tempfile
 from functools import reduce
+from bson import ObjectId
 from pymongo import MongoClient
 
 client = MongoClient("mongo", 27017)
@@ -24,18 +25,24 @@ def add(student=None):
 
 
 def get_by_id(student_id=None, subject=None):
-    student = students_db.find_one({"_id": student_id}, {"_id": "0"})
+    student = students_db.find_one({"_id": ObjectId(student_id)})
 
     if not student:
         return "not found", 404
+
+    # adding proper student ID
+    student['student_id'] = student_id
+    # Removing DB id not readable to humans
+    del student['_id']
 
     return student
 
 
 def delete(student_id=None):
-    result = students_db.delete_one({"_id": student_id})
+    student = students_db.find_one({"_id": ObjectId(student_id)})
 
-    if result.deleted_count == 0:
+    if not student:
         return "not found", 404
 
+    students_db.delete_one({"_id": ObjectId(student_id)})
     return student_id
