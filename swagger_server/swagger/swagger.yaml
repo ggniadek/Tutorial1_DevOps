@@ -102,7 +102,8 @@ components:
       type: object
       properties:
         student_id:
-          type: integer
+          type: number
+          format: integer
         first_name:
           type: string
         last_name:
@@ -130,6 +131,7 @@ components:
           type: string
         grade:
           type: number
+          format: float
       example:
         grade: 6
         subject_name: subject_name
