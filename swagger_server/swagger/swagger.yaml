@@ -129,7 +129,7 @@ components:
         subject_name:
           type: string
         grade:
-          type: integer
+          type: float
       example:
         grade: 6
         subject_name: subject_name

@@ -24,7 +24,7 @@ class GradeRecord(Model):
         """
         self.swagger_types = {
             'subject_name': str,
-            'grade': int
+            'grade': float
         }
 
         self.attribute_map = {
@@ -69,7 +69,7 @@ class GradeRecord(Model):
         self._subject_name = subject_name
 
     @property
-    def grade(self) -> int:
+    def grade(self) -> float:
         """Gets the grade of this GradeRecord.
 
 
@@ -79,7 +79,7 @@ class GradeRecord(Model):
         return self._grade
 
     @grade.setter
-    def grade(self, grade: int):
+    def grade(self, grade: float):
         """Sets the grade of this GradeRecord.
 
 
