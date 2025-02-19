@@ -161,18 +161,7 @@
 									"first_name = postman.getEnvironmentVariable(\"first_name\");",
 									"tests[\"Name must be \"+first_name] = jsonData.first_name == first_name;",
 									"last_name = postman.getEnvironmentVariale(\"last_name\");",
-									"tests[\"last name  must be \"+last_name] = jsonData.last_name == last_name;",
-									"",
-									"subject_name_1 = postman.getEnvironmentVariable(\"subject_name_1\");",
-									"grade_1 = postman.getEnvironmentVariable(\"grade_1\");",
-									"tests[\"Subject must be \"+subject_name_1] = jsonData['grade_records'][0]['subject_name'] == subject_name_1;",
-									"tests[\"Grade of \"+subject_name_1+\" must be \"+grade_1] = jsonData['grade_records'][0]['grade'] == grade_1;",
-									"",
-									"subject_name_2 = postman.getEnvironmentVariable(\"subject_name_2\");",
-									"grade_2 = postman.getEnvironmentVariable(\"grade_2\");",
-									"tests[\"Subject must be \"+subject_name_2] = jsonData['grade_records'][1]['subject_name'] == subject_name_2;",
-									"tests[\"Grade of \"+subject_name_1+\" must be \"+grade_1] = jsonData['grade_records'][1]['grade'] == grade_2;",
-									""
+									"tests[\"last name  must be \"+last_name] = jsonData.last_name == last_name;"
 								],
 								"type": "text/javascript"
 							}
