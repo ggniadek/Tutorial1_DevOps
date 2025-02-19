@@ -24,7 +24,7 @@ def add(student=None):
 
 
 def get_by_id(student_id=None, subject=None):
-    student = students_db.find_one({"_id": student_id}, {"_id": 0})
+    student = students_db.find_one({"_id": student_id}, {"_id": "0"})
 
     if not student:
         return "not found", 404
