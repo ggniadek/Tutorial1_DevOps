@@ -3,7 +3,7 @@ import tempfile
 from functools import reduce
 from pymongo import MongoClient
 
-client = MongoClient("mongodb://admin:admin@localhost:27017/")
+client = MongoClient("mongo", 27017)
 db = client["student_db"]
 students_db = db["students"]
 
