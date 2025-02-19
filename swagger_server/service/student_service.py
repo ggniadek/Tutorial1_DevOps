@@ -19,9 +19,7 @@ def add(student=None):
         return "the student already exists", 409  # The student can't be added because it already exists
 
     # Insert student and and get ID
-    result = students_db.insert_one(student.to_dict).inserted_id
-    student.student_id = str(result)
-
+    student.student_id = students_db.insert_one(student.to_dict()).inserted_id
     return str(student.student_id)
 
 
