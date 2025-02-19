@@ -24,7 +24,7 @@ def add(student=None):
     return str(student.student_id)
 
 
-def get_by_id(student_id=None, subject=None):
+def get_by_id(student_id=None):
     student = students_db.find_one({"_id": ObjectId(student_id)})
 
     if not student:

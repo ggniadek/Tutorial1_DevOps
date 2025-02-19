@@ -15,7 +15,7 @@ class Student(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, student_id: str=None, first_name: str=None, last_name: str=None, grade_records: List[GradeRecord]=None):  # noqa: E501
+    def __init__(self, student_id: float=None, first_name: str=None, last_name: str=None, grade_records: List[GradeRecord]=None):  # noqa: E501
         """Student - a model defined in Swagger
 
         :param student_id: The student_id of this Student.  # noqa: E501
@@ -28,7 +28,7 @@ class Student(Model):
         :type grade_records: List[GradeRecord]
         """
         self.swagger_types = {
-            'student_id': str,
+            'student_id': float,
             'first_name': str,
             'last_name': str,
             'grade_records': List[GradeRecord]
@@ -67,7 +67,7 @@ class Student(Model):
         return self._student_id
 
     @student_id.setter
-    def student_id(self, student_id: str):
+    def student_id(self, student_id: float):
         """Sets the student_id of this Student.
 
 
