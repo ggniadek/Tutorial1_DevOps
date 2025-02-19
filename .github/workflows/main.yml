@@ -13,9 +13,16 @@ jobs:
     - name: Build docker
       run: |
         docker build . -t $REPO_NAME/$IMAGE_NAME
+
+    - name: install docker compose
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y docker-compose
+
     - name: start docker compose
       run: |
         docker-compose up -d --build
+
     - name: wait for services to start
       run: sleep 20 #Wait for MongoDB & Flask to be ready
 
