@@ -26,7 +26,6 @@ paths:
         explode: false
         schema:
           type: string
-          format: uuid
       responses:
         "200":
           description: Successful operation
@@ -53,7 +52,6 @@ paths:
         explode: false
         schema:
           type: string
-          format: uuid
       responses:
         "200":
           description: Successful operation
@@ -102,8 +100,7 @@ components:
       type: object
       properties:
         student_id:
-          type: number
-          format: float
+          type: string
         first_name:
           type: string
         last_name:

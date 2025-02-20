@@ -3,6 +3,7 @@ import tempfile
 from functools import reduce
 from bson import ObjectId
 from pymongo import MongoClient
+from flask import jsonify
 
 client = MongoClient("mongo", 27017)
 db = client["student_db"]
@@ -20,7 +21,9 @@ def add(student=None):
         return "the student already exists", 409  # The student can't be added because it already exists
 
     # Insert student and and get ID
-    student.student_id = students_db.insert_one(student.to_dict()).inserted_id
+    result = students_db.insert_one(student.to_dict())
+    student.student_id = result.inserted_id
+    print(student.student_id)
     return str(student.student_id)
 
 
@@ -30,10 +33,7 @@ def get_by_id(student_id=None):
     if not student:
         return "not found", 404
 
-    # adding proper student ID
-    student['student_id'] = student_id
-    # Removing DB id not readable to humans
-    del student['_id']
+    student["_id"] = str(student["_id"])
 
     return student
 
@@ -44,5 +44,7 @@ def delete(student_id=None):
     if not student:
         return "not found", 404
 
+    student["_id"] = str(student["_id"])
+
     students_db.delete_one({"_id": ObjectId(student_id)})
-    return student_id
+    return student

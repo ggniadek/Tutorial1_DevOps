@@ -32,10 +32,7 @@ def delete_student(student_id):  # noqa: E501
 
     :rtype: object
     """
-    if connexion.request.is_json:
-        body = Student.from_dict(connexion.request.get_json())  # noqa: E501
-        return delete(body.student_id)  # 'delete' function is defined in student_service
-    return 500, 'error'
+    return delete(student_id)  # 'delete' function is defined in student_service
 
 
 def get_student_by_id(student_id):  # noqa: E501
@@ -48,7 +45,4 @@ def get_student_by_id(student_id):  # noqa: E501
 
     :rtype: Student
     """
-    if connexion.request.is_json:
-        body = Student.from_dict(connexion.request.get_json())  # noqa: E501
-        return get_by_id(body.student_id)  # 'get_by_id' function is defined in student_service
-    return 500, 'error'
+    return get_by_id(student_id)  # 'get_by_id' function is defined in student_service
